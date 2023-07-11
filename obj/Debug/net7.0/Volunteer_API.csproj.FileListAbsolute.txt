@@ -75,3 +75,4 @@ D:\Programming\School\Software Engineering 1\Project\Volunteer_API\obj\Debug\net
 D:\Programming\School\Software Engineering 1\Project\Volunteer_API\obj\Debug\net7.0\Volunteer_API.genruntimeconfig.cache
 D:\Programming\School\Software Engineering 1\Project\Volunteer_API\obj\Debug\net7.0\ref\Volunteer_API.dll
 D:\Programming\School\Software Engineering 1\Project\Volunteer_API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Programming\School\Software Engineering 1\Project\Volunteer_API\bin\Debug\net7.0\AutoMapper.dll

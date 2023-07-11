@@ -1,10 +1,9 @@
 namespace Volunteer_API.Model
 {
-    public class ServiceResponse<T>
+    public class ServiceResponseList<T>
     {
-        public T? Data { get; set; }
+        public List<Event>? list { get; set; }
         public bool Success { get; set; }
         public string Message { get; set; } = string.Empty;
-        
     }
 }

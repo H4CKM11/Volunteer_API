@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using Volunteer_API.DTO.Events;
 using Volunteer_API.Model;
 
 namespace Volunteer_API.Data
@@ -26,5 +28,15 @@ namespace Volunteer_API.Data
             response.Message = "Event Created";
             return response;
         }
+
+        public async Task<ServiceResponseList<List<RetrieveEvent>>> GetEvents()
+        {
+            var ServiceResponse = new ServiceResponseList<List<RetrieveEvent>>();
+            var dbEvents = await this.context.Events.ToListAsync();
+            ServiceResponse.list= dbEvents;
+            ServiceResponse.Success = true;
+            return ServiceResponse;
+        }
+
     }
 }
