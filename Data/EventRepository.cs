@@ -33,8 +33,7 @@ namespace Volunteer_API.Data
         {
             var ServiceResponse = new ServiceResponseList<List<RetrieveEvent>>();
             var dbEvents = await this.context.Events.ToListAsync();
-            ServiceResponse.list= dbEvents;
-            ServiceResponse.Success = true;
+            ServiceResponse.events= dbEvents;
             return ServiceResponse;
         }
 

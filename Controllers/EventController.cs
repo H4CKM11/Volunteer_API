@@ -32,10 +32,7 @@ namespace Volunteer_API.Controllers
         public async Task<ActionResult<ServiceResponse<int>>> GetEvent()
         {
             var response = await this.eventRepos.GetEvents();
-            if(!response.Success)
-            {
-                return BadRequest(response);
-            }
+
             return Ok(response);
         }
 
