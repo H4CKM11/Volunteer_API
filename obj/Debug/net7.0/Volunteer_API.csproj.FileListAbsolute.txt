@@ -76,3 +76,8 @@ D:\Programming\School\Software Engineering 1\Project\Volunteer_API\obj\Debug\net
 D:\Programming\School\Software Engineering 1\Project\Volunteer_API\obj\Debug\net7.0\ref\Volunteer_API.dll
 D:\Programming\School\Software Engineering 1\Project\Volunteer_API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Programming\School\Software Engineering 1\Project\Volunteer_API\bin\Debug\net7.0\AutoMapper.dll
+D:\Programming\School\Software Engineering 1\Project\Volunteer_API\bin\Debug\net7.0\BouncyCastle.Cryptography.dll
+D:\Programming\School\Software Engineering 1\Project\Volunteer_API\bin\Debug\net7.0\MailKit.dll
+D:\Programming\School\Software Engineering 1\Project\Volunteer_API\bin\Debug\net7.0\MimeKit.dll
+D:\Programming\School\Software Engineering 1\Project\Volunteer_API\bin\Debug\net7.0\System.Security.Cryptography.Pkcs.dll
+D:\Programming\School\Software Engineering 1\Project\Volunteer_API\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
