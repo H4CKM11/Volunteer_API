@@ -27,6 +27,17 @@ namespace Volunteer_API.Controllers
             }
             return Ok(response);
         }
+        [HttpPost("UpdateVolunteer")]
+        public async Task<ActionResult<ServiceResponse<int>>> Registered(UpdateEventDto request)
+        {
+            var response = await this.eventRepos.Registered(request);
+            if(!response.Success)
+            {
+                return BadRequest(response);
+            }
+        
+            return Ok(response);        
+        }
 
         [HttpGet("GetEvents")]
         public async Task<ActionResult<ServiceResponse<int>>> GetEvent()

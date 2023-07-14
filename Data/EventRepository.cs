@@ -37,5 +37,30 @@ namespace Volunteer_API.Data
             return ServiceResponse;
         }
 
+        public async Task<ServiceResponse<int>> Registered(UpdateEventDto eventName)
+        {
+
+            var option = new DbContextOptionsBuilder<DataContext>()
+            .UseSqlServer("Server=.\\SqlExpress; Database=dotnet_Volunteer_Management_System; Trusted_Connection=true; TrustServerCertificate=true;")
+            .Options;
+            using(var db = new DataContext(option))
+            {
+                var eventFound = db.Events.Where(u => u.Id == eventName.Id).FirstOrDefault();
+
+                if(eventFound != null)
+                {
+                    eventFound.Volunteers += 1;
+                    await db.SaveChangesAsync();
+
+                    return new ServiceResponse<int> {Success = true, Message = "Volunteers Updated"};
+                }
+                else
+                {
+                    return new ServiceResponse<int> {Message = "Event Not Found"};
+                }
+
+            }
+
+        }
     }
 }

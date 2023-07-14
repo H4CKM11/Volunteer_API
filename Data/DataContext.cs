@@ -11,5 +11,7 @@ namespace Volunteer_API.Data
         }
         public DbSet<User> Users => Set<User>();
         public DbSet<Event> Events =>Set<Event>();
+
+        
     }
 }
