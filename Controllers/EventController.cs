@@ -47,6 +47,14 @@ namespace Volunteer_API.Controllers
             return Ok(response);
         }
 
+        [HttpGet("searchEvent")]
+        public async  Task<ActionResult<ServiceResponse<int>>> searchEvent(string eventName)
+        {
+            var response = await this.eventRepos.searchEvent(eventName);
+
+            return Ok(response);
+        }
+
         
     }
 }

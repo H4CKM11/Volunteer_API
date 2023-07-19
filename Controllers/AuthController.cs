@@ -38,5 +38,13 @@ namespace Volunteer_API.Controllers
             }
             return Ok(response);
         }
+
+        [HttpGet("GetUsers")]
+        public async Task<ActionResult<ServiceResponse<int>>> getUsers()
+        {
+            var response = await this.authRepo.getUsers();
+
+            return Ok(response);
+        }
     }
 }

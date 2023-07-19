@@ -37,6 +37,7 @@ namespace Volunteer_API.Data
             return ServiceResponse;
         }
 
+
         public async Task<ServiceResponse<int>> Registered(UpdateEventDto eventName)
         {
 
@@ -61,6 +62,13 @@ namespace Volunteer_API.Data
 
             }
 
+        }
+        public async Task<ServiceResponseList<List<RetrieveEvent>>> searchEvent(string eventName)
+        {
+            var ServiceResponse = new ServiceResponseList<List<RetrieveEvent>>();
+            var dbEvents = await this.context.Events.Where(e => e.Name.Contains(eventName)).ToListAsync();
+            ServiceResponse.events= dbEvents;
+            return ServiceResponse;
         }
     }
 }

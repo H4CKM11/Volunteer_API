@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Volunteer_API.DTO.Users;
 using Volunteer_API.Model;
 
 namespace Volunteer_API.Data
@@ -121,6 +122,15 @@ namespace Volunteer_API.Data
             SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
 
             return tokenHandler.WriteToken(token);
+        }
+
+        public async Task<ServiceResponseListUser<List<GetAllUsersDTO>>> getUsers()
+        {
+            var ServiceResponse = new ServiceResponseListUser<List<GetAllUsersDTO>>();
+            var dbUsers = await this.context.Users.ToListAsync();
+            ServiceResponse.users = dbUsers;
+
+            return ServiceResponse;
         }
     }
 }
