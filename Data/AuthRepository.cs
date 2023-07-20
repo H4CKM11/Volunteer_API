@@ -44,7 +44,7 @@ namespace Volunteer_API.Data
             return response;
         }
 
-        public async Task<ServiceResponse<int>> Register(User user, string password, string _email)
+        public async Task<ServiceResponse<int>> Register(User user, string password, string _email, string _skillLevel)
         {
             var response = new ServiceResponse<int>();
             if(await UserExists(user.Username))
@@ -57,6 +57,7 @@ namespace Volunteer_API.Data
             CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
 
             user.Email = _email;
+            user.skillLevel = _skillLevel;
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
 
@@ -131,6 +132,14 @@ namespace Volunteer_API.Data
             ServiceResponse.users = dbUsers;
 
             return ServiceResponse;
+        }
+
+        public async Task<ServiceResponseListUser<List<GetSkillUserDTO>>> getSkilledUsers(string skill)
+        {
+            var response = new ServiceResponseListUser<List<GetSkillUserDTO>>();
+            var dbUsers = await this.context.Users.Where(e => e.skillLevel.Contains(skill)).ToListAsync();
+            response.users = dbUsers;
+            return response;
         }
     }
 }

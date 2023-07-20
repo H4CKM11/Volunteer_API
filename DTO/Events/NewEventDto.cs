@@ -8,5 +8,6 @@ namespace Volunteer_API.DTO.Events
         public string Year { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
+        public string skillLevel { get; set; } = string.Empty;
     }
 }

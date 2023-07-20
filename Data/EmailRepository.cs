@@ -7,8 +7,10 @@ namespace Volunteer_API.Data
     public class EmailRepository : IEmailRepository
     {
         public IConfiguration Config { get; }
-        public EmailRepository(IConfiguration config)
+        public DataContext DbContext { get; }
+        public EmailRepository(IConfiguration config, DataContext dbContext)
         {
+            this.DbContext = dbContext;
             this.Config = config;
 
         }
@@ -25,6 +27,26 @@ namespace Volunteer_API.Data
             smtp.Authenticate(Config.GetSection("EmailUserName").Value, Config.GetSection("EmailPassword").Value);
             smtp.Send(email);
             smtp.Disconnect(true);
+        }
+
+        public void sendEmailToAllUsers()
+        {
+            var users = this.DbContext.Users.ToList();
+            var eventLists = this.DbContext.Events.ToList();
+            foreach(var user in users)
+            {
+                var emailRequest = new EmailDTO
+                {
+                    email = user.Email,
+                    Subject = "Dont Forget To Sign Up!"
+                };
+                foreach (var eventList in eventLists)
+                {
+                    emailRequest.Body = eventList.Name;
+                }
+                
+                sendEmail(emailRequest);
+            }
         }
     }
 }

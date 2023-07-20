@@ -19,7 +19,7 @@ namespace Volunteer_API.Controllers
         public async Task<ActionResult<ServiceResponse<int>>> NewEvent(NewEventDto request)
         {
             var response = await this.eventRepos.NewEvent(
-                new Event {Name = request.Name}, request.Description, request.Month, request.Day
+                new Event {Name = request.Name}, request.Description, request.Month, request.Day, request.skillLevel
             );
             if(!response.Success)
             {

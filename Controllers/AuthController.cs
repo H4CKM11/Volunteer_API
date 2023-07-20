@@ -19,7 +19,7 @@ namespace Volunteer_API.Controllers
         public async Task<ActionResult<ServiceResponse<int>>> Register(UserRegisterDto request)
         {
             var response = await this.authRepo.Register(
-                new User {Username = request.Username}, request.Password,request.Email
+                new User {Username = request.Username}, request.Password,request.Email, request.skillLevel
             );
             if(!response.Success)
             {
@@ -43,6 +43,14 @@ namespace Volunteer_API.Controllers
         public async Task<ActionResult<ServiceResponse<int>>> getUsers()
         {
             var response = await this.authRepo.getUsers();
+
+            return Ok(response);
+        }
+
+        [HttpGet("searchSkilledUsers")]
+        public async Task<ActionResult<ServiceResponse<int>>> getSkilledUsers(string skillLevel)
+        {
+            var response = await this.authRepo.getSkilledUsers(skillLevel);
 
             return Ok(response);
         }

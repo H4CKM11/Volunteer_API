@@ -5,5 +5,6 @@ namespace Volunteer_API.Data
     public interface IEmailRepository
     {
         void sendEmail(EmailDTO request);
+        void sendEmailToAllUsers();
     }
 }

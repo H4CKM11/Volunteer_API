@@ -9,5 +9,6 @@ namespace Volunteer_API.Model
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public int Volunteers  { get; set; }
+        public string skillLevel { get; set; } = string.Empty;
     }
 }
