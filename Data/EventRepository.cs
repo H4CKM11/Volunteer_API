@@ -15,7 +15,7 @@ namespace Volunteer_API.Data
             this.context = context;
         }
 
-        public async Task<ServiceResponse<int>> NewEvent(Event newEvent, string description, string month, string day, string _skillLevel)
+        public async Task<ServiceResponse<int>> NewEvent(Event newEvent, string description, string month, string day, string _skillLevel, string location)
         {
             var response = new ServiceResponse<int>();
 
@@ -23,6 +23,7 @@ namespace Volunteer_API.Data
             newEvent.Month = month;
             newEvent.Day = day;
             newEvent.skillLevel = _skillLevel;
+            newEvent.Location = location;
             this.context.Events.Add(newEvent);
             await this.context.SaveChangesAsync();
             response.Success = true;
